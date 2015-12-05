@@ -16,3 +16,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+
+Procfile.dev
+passenger.3000.pid.lock
+passenger*
