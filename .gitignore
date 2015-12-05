@@ -22,3 +22,6 @@ passenger.3000.pid.lock
 passenger*
 
 config/database.yml
+
+# Ignore application configuration
+/config/application.yml
