@@ -8,16 +8,21 @@ Bundler.require(*Rails.groups)
 
 module TurbolinksRailsBlog
   class Application < Rails::Application
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
 
-    # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
-    # Run "rake time:zones:all" for a time zone names list. Default is UTC.
-    # config.time_zone = 'Central Time (US & Canada)'
+    # Background job processing
+    config.active_job.queue_adapter = :sidekiq
 
-    # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-    # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
+    # Do not swallow errors in after_commit/after_rollback callbacks.
+    config.active_record.raise_in_transactional_callbacks = true
+    config.active_record.schema_format = :sql
+
+    # Configure rails g to skip helper/assets files
+    config.generators do |g|
+      g.assets = false
+      g.helper = false
+      g.view_specs      false
+      g.helper_specs    false
+    end
+
   end
 end
