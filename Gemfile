@@ -37,6 +37,9 @@ gem 'jquery-rails'
 gem 'turbolinks', github: 'rails/turbolinks'
 gem 'jquery-turbolinks'
 
+# Authentication
+gem 'bcrypt'
+
 # Use Unicorn as the app server
 gem 'passenger'
 
