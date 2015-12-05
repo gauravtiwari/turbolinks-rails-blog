@@ -40,10 +40,6 @@ gem 'jquery-turbolinks'
 # Use Unicorn as the app server
 gem 'passenger'
 
-# Authentication
-gem 'devise', github: 'plataformatec/devise'
-gem 'devise_uid'
-
 # Authorization
 gem 'pundit'
 
