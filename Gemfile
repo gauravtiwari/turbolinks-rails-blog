@@ -66,7 +66,7 @@ gem 'readthis'
 gem 'hiredis'
 
 # Pagination
-gem 'will_paginate'
+gem 'will_paginate', github: 'kirs/will_paginate', branch: 'fix/i18n-path'
 
 # Foreman - Process management
 gem 'foreman'
