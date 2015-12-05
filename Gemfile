@@ -40,7 +40,7 @@ gem 'jquery-turbolinks'
 gem 'passenger'
 
 # Authentication
-gem 'devise'
+gem 'devise', github: 'plataformatec/devise'
 gem 'devise_uid'
 
 # Authorization

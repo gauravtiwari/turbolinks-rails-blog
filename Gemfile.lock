@@ -6,6 +6,18 @@ GIT
     will_paginate (3.0.4)
 
 GIT
+  remote: git://github.com/plataformatec/devise.git
+  revision: 45fc9644703282e831d03ea891d198406abd350e
+  specs:
+    devise (3.5.2)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      responders
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
+
+GIT
   remote: git://github.com/rack/rack.git
   revision: c393176b0edf3e5d06cabbb6eb9d9c7a07b2afa7
   specs:
@@ -157,13 +169,6 @@ GEM
     concurrent-ruby (1.0.0)
     connection_pool (2.2.0)
     debug_inspector (0.0.2)
-    devise (3.5.2)
-      bcrypt (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 3.2.6, < 5)
-      responders
-      thread_safe (~> 0.1)
-      warden (~> 1.2.3)
     devise_uid (0.1.1)
       devise (>= 3.0.0)
       railties (>= 3.0)
@@ -270,7 +275,7 @@ DEPENDENCIES
   bullet
   byebug
   coffee-rails!
-  devise
+  devise!
   devise_uid
   figaro
   font-awesome-rails
