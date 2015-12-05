@@ -1,0 +1,14 @@
+<%# Basic login form for user %>
+<section class="login-form">
+  <div class="container">
+    <div class="row">
+      <h1>Login</h1>
+      <%= form_tag '/login' do %>
+        Email: <%= text_field_tag :username %>
+        Password: <%= password_field_tag :password %>
+        <%= submit_tag "Submit" %>
+      <% end %>
+    </div>
+  </div>
+</section>
+<%# / Basic login form for user %>

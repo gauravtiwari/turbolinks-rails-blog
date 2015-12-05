@@ -1,0 +1,18 @@
+<%# Basic Signup form for user %>
+<section class="signup-form">
+  <div class="container">
+    <div class="row">
+      <h1>Signup!</h1>
+      <%= form_for :user, url: '/users' do |f| %>
+
+        Username: <%= f.text_field :username %>
+        Email: <%= f.text_field :email %>
+        Password: <%= f.password_field :password %>
+        <%= f.submit "Submit" %>
+
+      <% end %>
+
+    </div>
+  </div>
+</section>
+<%# / Basic Signup form for user %>
