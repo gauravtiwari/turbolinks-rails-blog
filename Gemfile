@@ -12,6 +12,7 @@ gem 'rails', github: 'rails/rails'
 gem 'sprockets-rails', github: 'rails/sprockets-rails'
 gem 'sprockets', github: 'rails/sprockets'
 gem 'sass-rails', github: 'rails/sass-rails'
+gem 'actioncable', github: 'rails/actioncable'
 gem 'arel', github: 'rails/arel'
 gem 'rack', github: 'rack/rack'
 
@@ -27,7 +28,7 @@ gem 'coffee-rails', github: 'rails/coffee-rails'
 gem 'bootstrap-sass', '~> 3.3.5'
 
 # Font awesome
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -82,9 +83,9 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'byebug'
-  gem "better_errors"
-  gem "bullet"
-  gem "binding_of_caller"
+  gem 'better_errors'
+  gem 'bullet'
+  gem 'binding_of_caller'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
