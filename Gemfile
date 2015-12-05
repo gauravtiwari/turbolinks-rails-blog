@@ -1,4 +1,12 @@
+ruby '2.2.3'
 source 'https://rubygems.org'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-underscore'
+  gem 'rails-assets-animate-css'
+  gem 'rails-assets-snackbarjs'
+  gem 'rails-assets-autosize'
+end
 
 gem 'rails', github: 'rails/rails'
 gem 'sprockets-rails', github: 'rails/sprockets-rails'

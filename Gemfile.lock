@@ -122,6 +122,7 @@ GIT
 
 GEM
   remote: https://rubygems.org/
+  remote: https://rails-assets.org/
   specs:
     autoprefixer-rails (6.1.2)
       execjs
@@ -206,6 +207,10 @@ GEM
       activesupport (>= 3.0.0)
     rack-test (0.6.3)
       rack (>= 1.0)
+    rails-assets-animate-css (3.4.0)
+    rails-assets-autosize (3.0.14)
+    rails-assets-snackbarjs (1.0.0)
+    rails-assets-underscore (1.8.3)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.7)
@@ -276,6 +281,10 @@ DEPENDENCIES
   pundit
   rack!
   rails!
+  rails-assets-animate-css!
+  rails-assets-autosize!
+  rails-assets-snackbarjs!
+  rails-assets-underscore!
   rails_12factor
   readthis
   sass-rails!
