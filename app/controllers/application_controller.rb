@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   def authenticate_user
     return if current_user
     render json: {
-      url: request.referrer || root_path,
+      url: '/login',
       message: 'You are not authorized to perform this action. Redirecting...',
     }, status: :unauthorized
   end
