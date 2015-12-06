@@ -12,4 +12,14 @@
         <%= simple_format comment.body %>
        </div>
     </div>
+    <div class="user-actions" >
+      <ul>
+        <%= render partial: 'votes/votes', locals: { votable: comment } %>
+        <li>
+          <%= link_to(post_comment_path(@post, comment), class: 'delete-comment-link', data: { tg_remote: "delete", tg_refresh_on_success: "comments_list", tg_refresh_on_error: "comments_list"} ) do %>
+            <span class="fa fa-trash"></span>
+          <% end %>
+        </li>
+      </ul>
+    </div>
 </div>

@@ -36,7 +36,8 @@ SET default_with_oids = false;
 CREATE TABLE comments (
     id integer NOT NULL,
     body text,
-    votes_count integer,
+    votes_count integer DEFAULT 0,
+    voter_ids character varying[] DEFAULT '{}'::character varying[],
     user_id integer,
     post_id integer,
     created_at timestamp without time zone NOT NULL,
@@ -72,8 +73,8 @@ CREATE TABLE posts (
     title character varying,
     body text,
     slug character varying,
-    comments_count integer,
-    votes_count integer,
+    comments_count integer DEFAULT 0,
+    votes_count integer DEFAULT 0,
     voter_ids character varying[] DEFAULT '{}'::character varying[],
     user_id integer,
     created_at timestamp without time zone NOT NULL,
@@ -303,6 +304,13 @@ CREATE INDEX index_users_on_username ON users USING btree (username);
 --
 
 CREATE INDEX index_votes_on_user_id ON votes USING btree (user_id);
+
+
+--
+-- Name: index_votes_on_votable_id_and_votable_type_and_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE UNIQUE INDEX index_votes_on_votable_id_and_votable_type_and_user_id ON votes USING btree (votable_id, votable_type, user_id);
 
 
 --

@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-10.times do
+50.times do
   User.create!(
     username: Faker::Internet.user_name,
     password: 'password',
@@ -15,7 +15,7 @@
   )
 end
 
-10.times do
+500.times do
   Post.create!(
     title: Faker::Lorem.sentence(3),
     body: " <p>Never in all their history have men been able truly to conceive of the world as one: a single sphere, a globe, having the qualities of a globe, a round earth in which all the directions eventually meet, in which there is no center because every point, or none, is center — an equal earth which all men occupy as equals. The airman's earth, if free men make it, will be truly round: a globe in practice, not in theory.</p>
@@ -32,20 +32,26 @@ end
 end
 
 
-10.times do
+500.times do
   Comment.create!(
     body: Faker::Lorem.sentence(10),
     user_id: (1..10).to_a.sample,
-    post_id: (1..10).to_a.sample
+    post_id: (90..100).to_a.sample
   )
 end
 
-100.times do
-  Vote.create!(
-    user_id: (1..10).to_a.sample,
-    votable_type: ['Post', 'Comment'].sample,
-    votable_id: (1..10).to_a.sample
-  )
+1000.times do
+  type = ['Post', 'Comment'].sample
+  id = (1..50).to_a.sample
+  @vote = Vote.where(user_id: id, votable_id: id, votable_type: type).blank?
+
+  if @vote
+    Vote.create!(
+      user_id: id,
+      votable_type: type,
+      votable_id: id
+    )
+  end
 end
 
 

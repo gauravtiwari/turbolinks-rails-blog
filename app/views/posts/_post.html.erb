@@ -1,0 +1,28 @@
+<div class="post-preview">
+    <%= link_to(post_path(post)) do %>
+        <h2 class="post-title">
+            <%= post.title %>
+        </h2>
+        <h3 class="post-subtitle">
+            <%= simple_format truncate(post.body, length: 150, escape: false) %>
+        </h3>
+    <% end %>
+    <p class="post-meta">
+      <span>
+        Posted by: <a href="#"><%= post.user.username %></a>
+        <%= local_time_ago(post.created_at) %>
+      </span>
+
+      <div class="user-actions" >
+        <ul>
+          <%= render partial: 'votes/votes', locals: { votable: post } %>
+          <li>
+             <span class="counters">
+                Comments: <%= post.comments_count %>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </p>
+</div>
+<hr>

@@ -1,31 +1,7 @@
 <!-- Main Content -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <% @posts.each do |post| %>
-              <div class="post-preview">
-                  <%= link_to(post_path(post)) do %>
-                      <h2 class="post-title">
-                          <%= post.title %>
-                      </h2>
-                      <h3 class="post-subtitle">
-                          <%= simple_format truncate(post.body, length: 150, escape: false) %>
-                      </h3>
-                  <% end %>
-                  <p class="post-meta">
-                    Posted by: <a href="#"><%= post.user.username %></a>
-                    <%= local_time_ago(post.created_at) %>
-                  </p>
-              </div>
-              <hr>
-            <% end %>
-            <!-- Pager -->
-            <ul class="pager">
-                <li class="next">
-                    <%= link_to('Older Posts', posts_path(page: @posts.next_page)) %>
-                </li>
-            </ul>
-        </div>
+      <%= render partial: 'posts' %>
     </div>
 </div>
 

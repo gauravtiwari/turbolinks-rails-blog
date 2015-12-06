@@ -2,4 +2,11 @@
   .edit-comment-link {
     float: right;
   }
+  .comment-body {
+    p {
+      margin: 10px 0;
+      font-size: 15px;
+      font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+  }
 }

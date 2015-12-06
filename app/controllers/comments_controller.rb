@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   before_action :authenticate_user, only: [:create, :destroy, :update]
   before_action :find_post
   before_action :find_comments, except: [:edit, :update]
-  before_action :find_comment, only: [:edit, :update, :destroy]
+  before_action :find_comment, only: [:show, :edit, :update, :destroy]
 
   # GET /posts/:id/comments
   def index
@@ -13,6 +13,18 @@ class CommentsController < ApplicationController
         render partial: 'comments', locals: { comments: @comments }
       end
       format.json
+    end
+  end
+
+  # GET /posts/:id/comments/:id
+  def show
+    respond_to do |format|
+      # Render comment
+      format.html do
+        render partial: 'comment',
+        locals: { comment: @comment, resource: @post }
+      end
+      format.json { render :show }
     end
   end
 
@@ -40,11 +52,11 @@ class CommentsController < ApplicationController
         format.html do
           render partial: 'comments',
           locals: {comments: @comments},
-          status: unprocessable_entity
+          status: :unprocessable_entity
         end
         format.json {
           render json: @comment.errors,
-          status: unprocessable_entity
+          status: :unprocessable_entity
         }
       end
     end
@@ -59,7 +71,6 @@ class CommentsController < ApplicationController
   # PUT /posts/:id/comments/:id
   def update
     # Update a comment
-    @comment = Comment.find(params[:id])
 
     respond_to do |format|
       if @comment.update(comment_params)
@@ -74,11 +85,11 @@ class CommentsController < ApplicationController
         format.html do
           render partial: 'comment',
           locals: { comment: @comment, resource: @post },
-          status: unprocessable_entity
+          status: :unprocessable_entity
         end
         format.json {
           render json: @comment.errors,
-          status: unprocessable_entity
+          status: :unprocessable_entity
         }
       end
     end
@@ -87,7 +98,6 @@ class CommentsController < ApplicationController
   # DELETE /posts/:id/comments/:id
   def destroy
     # Build a comment
-    @comment = Comment.find(params[:id])
 
     respond_to do |format|
       if @comment.destroy
@@ -101,11 +111,11 @@ class CommentsController < ApplicationController
         format.html do
          render partial: 'comments',
          locals: { comments: @comments },
-         status: unprocessable_entity
+         status: :unprocessable_entity
         end
         format.json {
          render json: @comment.errors,
-         status: unprocessable_entity
+         status: :unprocessable_entity
         }
       end
     end
@@ -113,16 +123,16 @@ class CommentsController < ApplicationController
 
   private
     def find_comment
-      @comment = Comment.find(params[:id])
+      @comment = Comment.includes(:votes, :user).find(params[:id])
       authorize @comment
     end
 
     def find_post
-      @post = Post.includes(:comments).find_by(slug: params[:post_id])
+      @post = Post.includes(:comments, :votes).find_by(slug: params[:post_id])
     end
 
     def find_comments
-      @comments = @post.comments.order(id: :desc)
+      @comments = @post.comments.includes(:user, :votes).order(id: :desc)
       .paginate(:page => params[:page], :per_page => 20)
     end
 

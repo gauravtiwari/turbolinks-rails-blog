@@ -232,6 +232,15 @@ hr.small {
   font-size: 18px;
   font-style: italic;
   margin-top: 0;
+  li {
+    list-style: none;
+  }
+  span {
+    margin-right: 10px;
+    &.counters {
+      float: right;
+    }
+  }
 }
 .post-preview > .post-meta > a {
   text-decoration: none;
@@ -327,11 +336,11 @@ form .row:first-child .floating-label-form-group {
 .btn {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-transform: uppercase;
-  font-size: 14px;
-  font-weight: 800;
+  font-size: 13px;
+  font-weight: 600;
   letter-spacing: 1px;
   border-radius: 0;
-  padding: 15px 25px;
+  padding: 5px 10px;
 }
 .btn-lg {
   font-size: 16px;
@@ -391,4 +400,20 @@ img::-moz-selection {
 }
 body {
   webkit-tap-highlight-color: #0085a1;
+}
+.form-control {
+  padding: 15px 15px;
+}
+.comment {
+  .btn {
+    float: right;
+    margin-left: 10px;
+  }
+}
+.media-heading {
+  margin-bottom: 15px;
+}
+.post-preview .post-meta {
+  display: inline-block;
+  float: right;
 }

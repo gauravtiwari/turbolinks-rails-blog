@@ -7,6 +7,7 @@ document.addEventListener 'page:before-partial-replace', (event) ->
   return
 
 document.addEventListener 'turbograft:remote:always', (event) ->
+  $('form')[0].reset()
   if event.data.xhr.status == 401 # thrownError is 'Unauthorized'
     response = JSON.parse event.data.xhr.responseText
     App.flashMessage(response.message, "error", 5000)

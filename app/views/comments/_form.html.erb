@@ -4,5 +4,6 @@
      <%= f.text_area :body, value: comment.body, class: 'form-control', rows: '3' %>
     </div>
     <%= f.submit 'Update', class: 'btn btn-primary' %>
+    <%= f.button 'Cancel', class: 'btn btn-primary', href: post_comment_path(@post, comment), data: { tg_remote: "get", tg_refresh_on_success: "comment_#{comment.id}", tg_refresh_on_error: "comment_#{comment.id}"}  %>
   <% end %>
 </div>
