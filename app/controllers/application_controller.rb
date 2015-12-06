@@ -11,10 +11,10 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user
     return if current_user
-    respond_to do |format|
-      format.html {redirect_to '/login', status: :unauthorized}
-      format.js {render :js => "window.location = '/login'", status: :unauthorized}
-    end
+    render json: {
+      url: request.referrer || root_path,
+      message: 'You are not authorized to perform this action. Redirecting...',
+    }, status: :unauthorized
   end
 
   def user_signed_in?
