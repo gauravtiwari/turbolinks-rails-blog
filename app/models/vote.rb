@@ -1,7 +1,7 @@
 class Vote < ActiveRecord::Base
 
   belongs_to :user
-  belongs_to :votable, polymorphic: true, counter_cache: true
+  belongs_to :votable, polymorphic: true, touch: true, counter_cache: true
 
   after_commit :cache_voter, on: :create
   after_destroy :delete_voter
