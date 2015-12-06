@@ -8,10 +8,11 @@ document.addEventListener 'page:before-partial-replace', (event) ->
 
 document.addEventListener 'turbograft:remote:always', (event) ->
   $('form')[0].reset()
-  response = JSON.parse event.data.xhr.responseText
-  App.flashMessage(response.message, "error", 5000)
-  if response.url
-	  setTimeout (->
-	    Turbolinks.visit response.url
-	    return
-	  ), 2000
+  if event.data.xhr.status == 401 # thrownError is 'Unauthorized'
+	  response = JSON.parse event.data.xhr.responseText
+	  App.flashMessage(response.message, "error", 5000)
+	  if response.url
+		  setTimeout (->
+		    Turbolinks.visit response.url
+		    return
+		  ), 2000
