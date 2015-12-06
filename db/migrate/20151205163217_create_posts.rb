@@ -5,6 +5,7 @@ class CreatePosts < ActiveRecord::Migration
       t.text :body
       t.string :slug, index: true
       t.integer :comments_count, index: true
+      t.integer :votes_count, index: true
       t.string :voter_ids, array: true, default: '{}'
       t.references :user, index: true, foreign_key: true
 
