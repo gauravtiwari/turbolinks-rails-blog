@@ -4,9 +4,7 @@
     <h2 class="post-title">
       <%= post.title %>
     </h2>
-    <h3 class="post-subtitle">
-      <%= simple_format truncate(post.body, length: 150, escape: false) %>
-    </h3>
+    <%= simple_format truncate(post.body, length: 150, escape: false) %>
   <% end %>
   <p class="post-meta">
     <span>
