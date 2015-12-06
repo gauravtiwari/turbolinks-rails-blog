@@ -1,1 +1,2 @@
-web: bundle exec passenger start
+web: bundle exec passenger start -p $PORT
+redis: redis-server

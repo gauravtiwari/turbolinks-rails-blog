@@ -1,7 +1,9 @@
 <!-- Main Content -->
 <div class="container">
   <div class="row">
-    <%= render partial: 'posts' %>
+    <%= cache(['v1', 'posts', @posts, params[:page]]) do %>
+      <%= render partial: 'posts' %>
+    <% end %>
   </div>
 </div>
 <hr>

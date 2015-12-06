@@ -1,2 +1,4 @@
 <!-- Comments -->
-<%= render partial: 'comments', locals: {comments: @comments} %>
+<% cache(['v1', 'comments', @post, @comments]) do %>
+  <%= render partial: 'comments', locals: {comments: @comments} %>
+<% end %>

@@ -16,7 +16,9 @@
     <%# Partial updates for votes %>
     <div class="user-actions" >
       <ul>
-        <%= render partial: 'votes/votes', locals: { votable: post } %>
+        <% cache(['v1', 'votes', post]) do %>
+          <%= render partial: 'votes/votes', locals: { votable: post } %>
+        <% end %>
         <li>
           <span class="counters">
             Comments: <%= post.comments_count %>

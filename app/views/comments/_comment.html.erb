@@ -18,7 +18,9 @@
   <%# User actions partial updates %>
   <div class="user-actions" >
     <ul>
-      <%= render partial: 'votes/votes', locals: { votable: comment } %>
+      <% cache(['v1', 'votes', comment]) do %>
+        <%= render partial: 'votes/votes', locals: { votable: comment } %>
+      <% end %>
       <% if policy(comment).destroy? %>
         <li>
           <%= link_to(post_comment_path(@post, comment), class: 'delete-comment-link', data: { tg_remote: "delete", tg_refresh_on_success: "comments_list", tg_refresh_on_error: "comments_list"} ) do %>
