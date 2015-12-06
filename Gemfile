@@ -27,9 +27,6 @@ gem 'coffee-rails', github: 'rails/coffee-rails'
 # Bootstrap for layout
 gem 'bootstrap-sass', '~> 3.3.5'
 
-# Font awesome
-gem 'font-awesome-sass', '~> 4.4.0'
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
