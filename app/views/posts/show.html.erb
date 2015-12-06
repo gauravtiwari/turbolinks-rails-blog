@@ -1,5 +1,5 @@
 <!-- Post Content -->
-<% cache(['v1', 'post_show', @post, current_user]) do %>
+<% cache(['v1', 'post_show', @post, current_user, user_signed_in? ? 'authenticated' : 'guest']) do %>
   <article>
     <div class='container'>
       <div class='row'>
@@ -16,7 +16,9 @@
                 Comments: <%= @post.comments_count %>
               </span>
               <span class="counters">
-                <%= render partial: 'votes/votes', locals: { votable: @post } %>
+                <% cache(['v1', 'votes', @post]) do %>
+                  <%= render partial: 'votes/votes', locals: { votable: @post } %>
+                <% end %>
               </span>
             </div>
           </div>

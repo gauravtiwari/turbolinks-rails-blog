@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  helper_method :current_user
+  helper_method :current_user, :user_signed_in?
 
   def authenticate_user
     return if current_user
@@ -15,6 +15,11 @@ class ApplicationController < ActionController::Base
       format.html {redirect_to '/login', status: :unauthorized}
       format.js {render :js => "window.location = '/login'", status: :unauthorized}
     end
+  end
+
+  def user_signed_in?
+    return false unless session[:user_id].present?
+    User.where(id: session[:user_id]).exists?
   end
 
   private
