@@ -165,6 +165,7 @@ GEM
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.0)
     connection_pool (2.2.0)
+    dalli (2.7.4)
     debug_inspector (0.0.2)
     em-hiredis (0.3.0)
       eventmachine (~> 1.0)
@@ -193,6 +194,7 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.3)
+    kgio (2.10.0)
     listen (3.0.5)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -202,6 +204,7 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    memcachier (0.0.2)
     method_source (0.8.2)
     mime-types (2.99)
     mini_portile2 (2.0.0)
@@ -215,6 +218,8 @@ GEM
     pg (0.18.4)
     pundit (1.0.1)
       activesupport (>= 3.0.0)
+    rack-cache (1.5.1)
+      rack (>= 0.4)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails-assets-animate-css (3.4.0)
@@ -238,9 +243,6 @@ GEM
     rb-fsevent (0.9.6)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
-    readthis (1.0.0)
-      connection_pool (~> 2.1)
-      redis (~> 3.0)
     redis (3.2.2)
     sass (3.4.19)
     sidekiq (4.0.1)
@@ -279,26 +281,28 @@ DEPENDENCIES
   bullet
   byebug
   coffee-rails!
+  dalli
   faker
   figaro
   foreman
-  hiredis
   jquery-atwho-rails
   jquery-rails
+  kgio
   listen (~> 3.0.5)
   local_time
+  memcachier
   modernizr-rails
   passenger
   pg
   pundit
   rack!
+  rack-cache
   rails!
   rails-assets-animate-css!
   rails-assets-autosize!
   rails-assets-snackbarjs!
   rails-assets-underscore!
   rails_12factor
-  readthis
   sass-rails!
   sidekiq
   spring

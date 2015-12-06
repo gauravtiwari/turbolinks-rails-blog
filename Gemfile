@@ -58,8 +58,9 @@ gem 'local_time'
 gem 'figaro'
 
 # Caching system
-gem 'readthis'
-gem 'hiredis'
+gem 'rack-cache'
+gem 'dalli'
+gem 'kgio'
 
 # Pagination
 gem 'will_paginate', github: 'kirs/will_paginate', branch: 'fix/i18n-path'
@@ -76,6 +77,7 @@ gem 'stringex'
 group :production, :staging do
   # Heroku
   gem 'rails_12factor'
+  gem "memcachier"
 end
 
 group :development do
