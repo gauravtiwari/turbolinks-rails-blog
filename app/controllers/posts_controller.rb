@@ -20,11 +20,11 @@ class PostsController < ApplicationController
 
 
   private
-    def find_post
-      @post = Post.includes(:comments, :votes).find_by(slug: params[:id])
-    end
+  def find_post
+    @post = Post.includes(:comments, :votes).find_by(slug: params[:id])
+  end
 
-    def post_params
-      params.permit(:page)
-    end
+  def post_params
+    params.permit(:page)
+  end
 end

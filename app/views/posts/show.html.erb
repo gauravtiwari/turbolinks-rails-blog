@@ -1,84 +1,79 @@
 <!-- Post Content -->
- <article>
-     <div class='container'>
-         <div class='row'>
-             <div class='col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1'>
-                <h2 class='section-heading'><%= simple_format @post.title %></h2>
-                <%= simple_format @post.body %>
-                <div class="post-preview show">
-                    <div class="post-meta" id="post_meta_<%= @post.id %>" data-tg-refresh="post_meta_<%= @post.id %>">
-                      <span>
-                        Posted by: <a href="#"><%= @post.user.username %></a>
-                        <%= local_time_ago(@post.created_at) %>
-                      </span>
-
-                      <span class="counters">
-                          Comments: <%= @post.comments_count %>
-                      </span>
-                      <span class="counters">
-                          <%= render partial: 'votes/votes', locals: { votable: @post } %>
-                      </span>
-                    </div>
-                </div>
-             </div>
-         </div>
-
-         <div class='row'>
-            <div class='col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1'>
-                <!-- Comments Form -->
-                <div class='well'>
-                    <h4>Leave a Comment:</h4>
-                    <%= form_for :comment, url: post_comments_path(@post), html: { id: 'comments_form', data: { tg_remote: "", tg_refresh_on_success: "comments_list post_meta_#{@post.id}", tg_refresh_on_error: "comments_list post_meta_#{@post.id}"} }, role: 'form' do |f| %>
-                      <div class='form-group'>
-                       <%= f.text_area :body, placeholder: 'Enter your comment', class: 'form-control', rows: '3' %>
-                      </div>
-                      <%= f.submit 'Submit', class: 'btn btn-primary' %>
-                    <% end %>
-                </div>
-
-                <hr>
-                <!-- Blog Comments -->
-                <%= render partial: 'comments/comments', locals: {comments: @comments, resource: @post} %>
+<article>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1'>
+        <h2 class='section-heading'><%= simple_format @post.title %></h2>
+        <%= simple_format @post.body %>
+        <div class="post-preview show">
+          <div class="post-meta" id="post_meta_<%= @post.id %>" data-tg-refresh="post_meta_<%= @post.id %>">
+            <span>
+              Posted by: <a href="#"><%= @post.user.username %></a>
+              <%= local_time_ago(@post.created_at) %>
+            </span>
+            <span class="counters">
+              Comments: <%= @post.comments_count %>
+            </span>
+            <span class="counters">
+              <%= render partial: 'votes/votes', locals: { votable: @post } %>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1'>
+        <!-- Comments Form -->
+        <div class='well'>
+          <h4>Leave a Comment:</h4>
+          <%= form_for :comment, url: post_comments_path(@post), html: { id: 'comments_form', data: { tg_remote: "", tg_refresh_on_success: "comments_list post_meta_#{@post.id}", tg_refresh_on_error: "comments_list post_meta_#{@post.id}"} }, role: 'form' do |f| %>
+            <div class='form-group'>
+              <%= f.text_area :body, placeholder: 'Enter your comment', class: 'form-control', rows: '3' %>
             </div>
-         </div>
-     </div>
- </article>
-
- <hr>
-
- <!-- Footer -->
- <footer>
-     <div class='container'>
-         <div class='row'>
-             <div class='col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1'>
-                 <ul class='list-inline text-center'>
-                     <li>
-                         <a href='#'>
-                             <span class='fa-stack fa-lg'>
-                                 <i class='fa fa-circle fa-stack-2x'></i>
-                                 <i class='fa fa-twitter fa-stack-1x fa-inverse'></i>
-                             </span>
-                         </a>
-                     </li>
-                     <li>
-                         <a href='#'>
-                             <span class='fa-stack fa-lg'>
-                                 <i class='fa fa-circle fa-stack-2x'></i>
-                                 <i class='fa fa-facebook fa-stack-1x fa-inverse'></i>
-                             </span>
-                         </a>
-                     </li>
-                     <li>
-                         <a href='#'>
-                             <span class='fa-stack fa-lg'>
-                                 <i class='fa fa-circle fa-stack-2x'></i>
-                                 <i class='fa fa-github fa-stack-1x fa-inverse'></i>
-                             </span>
-                         </a>
-                     </li>
-                 </ul>
-                 <p class='copyright text-muted'>Copyright &copy; Your Website 2014</p>
-             </div>
-         </div>
-     </div>
- </footer>
+            <%= f.submit 'Submit', class: 'btn btn-primary' %>
+          <% end %>
+        </div>
+        <hr>
+        <!-- Blog Comments -->
+        <%= render partial: 'comments/comments', locals: {comments: @comments, resource: @post} %>
+      </div>
+    </div>
+  </div>
+</article>
+<hr>
+<!-- Footer -->
+<footer>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1'>
+        <ul class='list-inline text-center'>
+          <li>
+            <a href='#'>
+              <span class='fa-stack fa-lg'>
+                <i class='fa fa-circle fa-stack-2x'></i>
+                <i class='fa fa-twitter fa-stack-1x fa-inverse'></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href='#'>
+              <span class='fa-stack fa-lg'>
+                <i class='fa fa-circle fa-stack-2x'></i>
+                <i class='fa fa-facebook fa-stack-1x fa-inverse'></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href='#'>
+              <span class='fa-stack fa-lg'>
+                <i class='fa fa-circle fa-stack-2x'></i>
+                <i class='fa fa-github fa-stack-1x fa-inverse'></i>
+              </span>
+            </a>
+          </li>
+        </ul>
+        <p class='copyright text-muted'>Copyright &copy; Your Website 2014</p>
+      </div>
+    </div>
+  </div>
+</footer>

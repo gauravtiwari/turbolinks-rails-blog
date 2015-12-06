@@ -19,11 +19,11 @@ class ApplicationController < ActionController::Base
 
   private
 
-    def user_not_authorized
-      render json: {
-        url: request.referrer || root_path,
-        message: 'You are not authorized to perform this action. Redirecting...',
-      }, status: :unauthorized
-    end
+  def user_not_authorized
+    render json: {
+      url: request.referrer || root_path,
+      message: 'You are not authorized to perform this action. Redirecting...',
+    }, status: :unauthorized
+  end
 
 end

@@ -29,8 +29,8 @@ class VotesController < ApplicationController
           # Render error
           format.html do
             render partial: 'votes',
-            locals: { votable: @votable },
-            status: unprocessable_entity
+              locals: { votable: @votable },
+              status: unprocessable_entity
           end
           format.json {
             render json: @vote.errors,
@@ -56,26 +56,26 @@ class VotesController < ApplicationController
       else
         # Render error
         format.html do
-         render partial: 'votes',
-         locals: { votable: @votable },
-         status: unprocessable_entity
+          render partial: 'votes',
+            locals: { votable: @votable },
+            status: unprocessable_entity
         end
         format.json {
-         render json: @vote.errors,
-         status: unprocessable_entity
+          render json: @vote.errors,
+          status: unprocessable_entity
         }
       end
     end
   end
 
   private
-    def find_vote
-      @vote = Vote.find(params[:id])
-      authorize @vote
-    end
+  def find_vote
+    @vote = Vote.find(params[:id])
+    authorize @vote
+  end
 
-    def find_votable
-      @votable = params[:votable_type].constantize.find(params[:votable_id])
-    end
+  def find_votable
+    @votable = params[:votable_type].constantize.find(params[:votable_id])
+  end
 
 end

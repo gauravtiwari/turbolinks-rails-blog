@@ -8,14 +8,14 @@ class Vote < ActiveRecord::Base
 
   private
 
-    def cache_voter
-      votable.voter_ids.push(user_id)
-      votable.save
-    end
+  def cache_voter
+    votable.voter_ids.push(user_id)
+    votable.save
+  end
 
-    def delete_voter
-      votable.voter_ids.delete(user_id.to_s)
-      votable.save
-    end
+  def delete_voter
+    votable.voter_ids.delete(user_id.to_s)
+    votable.save
+  end
 
 end
