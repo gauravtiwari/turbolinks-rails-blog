@@ -34,8 +34,7 @@ gem 'font-awesome-rails'
 gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks', github: 'rails/turbolinks'
-gem 'jquery-turbolinks'
+gem 'turbograft'
 
 # Authentication
 gem 'bcrypt'
@@ -70,6 +69,12 @@ gem 'will_paginate', github: 'kirs/will_paginate', branch: 'fix/i18n-path'
 
 # Foreman - Process management
 gem 'foreman'
+
+# Fake data
+gem 'faker'
+
+# Slug
+gem 'stringex'
 
 group :production, :staging do
   # Heroku

@@ -2,6 +2,9 @@
  * All app styles
 */
 
+@import url(http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
+
 body {
   font-family: 'Lora', 'Times New Roman', serif;
   font-size: 20px;
@@ -45,9 +48,7 @@ hr.small {
   border-color: white;
 }
 .navbar-custom {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
   z-index: 3;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -75,7 +76,7 @@ hr.small {
     color: rgba(0, 0, 0, 0.6);
   }
   .navbar-custom .nav li a {
-    color: #fff;
+    color: #333;
     padding: 20px;
   }
   .navbar-custom .nav li a:hover,
@@ -309,7 +310,7 @@ footer .copyright {
   -ms-transition: top 0.3s ease,opacity 0.3s ease;
   transition: top 0.3s ease,opacity 0.3s ease;
 }
-.floating-label-form-group::not(:first-child) {
+.floating-label-form-group:not(:first-child) {
   padding-left: 14px;
   border-left: 1px solid #eeeeee;
 }

@@ -9,6 +9,8 @@ Bundler.require(*Rails.groups)
 module TurbolinksRailsBlog
   class Application < Rails::Application
 
+    config.autoload_paths += Dir["#{config.root}/app/policies/*"]
+
     # Background job processing
     config.active_job.queue_adapter = :sidekiq
 

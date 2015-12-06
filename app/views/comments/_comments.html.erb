@@ -1,0 +1,23 @@
+ <!-- Posted Comments -->
+<div class="comments_list" id='comments_list' data-tg-refresh="comments_list">
+  <% comments.includes(:user).each do |comment| %>
+     <%= render partial: 'comments/comment', locals: {comment: comment, resource: @post} %>
+  <% end %>
+
+  <% if comments.next_page.present? %>
+    <!-- Pager -->
+    <ul class="pager">
+        <% if comments.previous_page %>
+        <li class="next">
+          <%= link_to('Newer Comments', post_comments_path(@post, page: comments.previous_page), data: { tg_remote: "get", tg_refresh_on_success: "comments_list", tg_refresh_on_error: "comments_list"} ) %>
+
+        </li>
+        <% end %>
+        <% if comments.next_page %>
+        <li class="prev">
+          <%= link_to('Older Comments', post_comments_path(@post, page: comments.next_page), data: { tg_remote: "get", tg_refresh_on_success: "comments_list", tg_refresh_on_error: "comments_list"} ) %>
+        </li>
+        <% end %>
+    </ul>
+  <% end %>
+</div>

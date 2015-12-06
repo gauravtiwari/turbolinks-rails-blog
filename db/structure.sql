@@ -70,6 +70,7 @@ CREATE TABLE posts (
     id integer NOT NULL,
     title character varying,
     body text,
+    slug character varying,
     user_id integer,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
@@ -194,6 +195,13 @@ CREATE INDEX index_comments_on_post_id ON comments USING btree (post_id);
 --
 
 CREATE INDEX index_comments_on_user_id ON comments USING btree (user_id);
+
+
+--
+-- Name: index_posts_on_slug; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_posts_on_slug ON posts USING btree (slug);
 
 
 --
