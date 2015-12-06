@@ -7,9 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-50.times do |i|
+50.times do
   User.create!(
-    username: '',
+    username: Faker::Internet.user_name,
     password: 'password',
     email: 'test@example.com'
   )
