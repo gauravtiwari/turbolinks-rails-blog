@@ -1,4 +1,4 @@
-<!-- Posted Comments -->
+<!-- Update meta info on update -->
 <div style="display: none;">
   <div class="post-meta" id="post_meta_<%= @post.id %>" data-tg-refresh="post_meta_<%= @post.id %>">
     <span>
@@ -13,6 +13,7 @@
     </span>
   </div>
 </div>
+<%# Comments list %>
 <div class="comments_list" id='comments_list' data-tg-refresh="comments_list">
   <% comments.each do |comment| %>
     <%= render partial: 'comments/comment', locals: {comment: comment, resource: @post} %>
@@ -33,3 +34,4 @@
     </ul>
   <% end %>
 </div>
+<%# / Comments list %>

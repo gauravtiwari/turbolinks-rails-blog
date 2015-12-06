@@ -1,3 +1,4 @@
+<%# Partial updates for posts pagination %>
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" id='posts_list' data-tg-refresh="posts_list">
   <% @posts.each do |post| %>
     <%= render partial: 'post', locals: { post: post } %>
@@ -11,3 +12,4 @@
     </ul>
   <% end %>
 </div>
+<%# Partial updates for posts pagination %>
